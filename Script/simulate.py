@@ -4,9 +4,9 @@ source_dir    = "./Src"
 build_dir     = "./Build"
 testbench_dir = "./TestBench"
 
-iverilog_path = "D:/VioletaWorkZone/iverilog/bin/iverilog.exe"
-vvp_path      = "D:/VioletaWorkZone/iverilog/bin/vvp.exe"
-gtkwave_path  = "D:/VioletaWorkZone/iverilog/gtkwave/bin/gtkwave.exe"
+iverilog_path = "iverilog"
+vvp_path      = "vvp"
+gtkwave_path  = "gtkwave"
 
 arguments = sys.argv[1:]
 
