@@ -4,6 +4,10 @@
 
 <https://www.eetree.cn/vendorProject/preview/411>
 
+## 项目链接
+
+<https://github.com/kokkoroQwQ/Reaction-Time-Testing/>
+
 ## 板子特点
 
 1. 这块 FPGA 的引脚在复位状态下似乎是高阻态
