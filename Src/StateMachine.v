@@ -1,13 +1,12 @@
 module StateMachine (
-    input  wire        clk, rstn,
-    input  wire        cur_player,
-    input  wire [6:0]  signals,
-    input  wire [15:0] react_time,
+    input  wire       clk, rstn,
+    input  wire       cur_player,
+    input  wire [6:0] signals,
+    input  wire [9:0] react_time,
 
-    output wire [2:0]  out_machine_state,
-    output wire [12:0] sum_react_time_A, sum_react_time_B,
-    output wire [9:0]  avr_react_time_A, avr_react_time_B,
-    output wire [2:0]  test_turn_A, test_turn_B
+    output wire [2:0] out_machine_state,
+    output wire [9:0] avr_react_time_A, avr_react_time_B,
+    output wire [2:0] test_turn_A, test_turn_B
 );
 
     // 状态机输入信号
@@ -16,14 +15,14 @@ module StateMachine (
                                                                           // overflow: 测量超时溢出
                                                                           // cleared: 计时器清零完成
 
-    assign signal_action  = signals[0];
-    assign signal_react   = signals[1];
-    assign signal_average = signals[2];
+    assign signal_action  = signals[6];
+    assign signal_react   = signals[5];
+    assign signal_average = signals[4];
     assign signal_compare = signals[3];
 
-    assign signal_start    = signals[4];
-    assign signal_overflow = signals[5];
-    assign signal_cleared  = signals[6];
+    assign signal_start    = signals[2];
+    assign signal_overflow = signals[1];
+    assign signal_cleared  = signals[0];
 
     // 状态机参数
     parameter IDLE     = 3'd0;
@@ -73,7 +72,7 @@ module StateMachine (
             START  : begin
                 if (signal_react || signal_overflow) begin
                     machine_state <= STORAGE;
-                    sum_react_time[cur_player] <= sum_react_time[cur_player] + react_time[12:0];
+                    sum_react_time[cur_player] <= sum_react_time[cur_player] + react_time;
                 end
                 else machine_state <= machine_state;
             end
