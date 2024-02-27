@@ -359,9 +359,9 @@ endmodule //StateMachine
 可见状态机状态和测试轮次寄存器都在输入信号的激励下按照预期发生变化，满足设计需求。
 
 * 毫秒计时器（Timer）
-![Alt text](./Img/WAVE_TB_Timer_1.png)
+![Alt text](./Img/WAVE_TB_Timer_3.png)
 可见，状态机处于WAIT（值为1）状态时，当计数值 count = rand_num，计时器发出 signal_start 信号；当状态机处于CLR_CNT1（值为2）状态时，计数值清零。
-![Alt text](./Img/WAVE_TB_Timer_2.png)
+![Alt text](./Img/WAVE_TB_Timer_4.png)
 可见，状态机处于 START（值为3）状态时，当计数值 count = 999，计时器发出 signal_overflow 信号；当状态机处于CLR_CNT2（值为5）状态时，计数值清零。状态机处于 STORAGE（值为4）状态时，计数值保持。
 
 * 随机数发生器（Random）
