@@ -1,9 +1,9 @@
 `timescale 1ns/1ps
 
-module TB_StateMachine;
+module TB_RGB;
 
 initial begin
-    $dumpfile ("./Build/TB_StateMachine.vcd");
+    $dumpfile ("./Build/TB_RGB.vcd");
     $dumpvars;
 end
 
@@ -19,6 +19,7 @@ assign signals = {signal_action, signal_react, signal_average, signal_compare, s
 wire [2:0] machine_state;
 wire [9:0] avr_react_time_A, avr_react_time_B;
 wire [2:0] test_turn_A, test_turn_B;
+wire [2:0] rgb1, rgb2;
 
 reg cnt;
 
@@ -28,7 +29,7 @@ initial begin
     cnt = 0;
     cur_player = PLAYER_A;
     react_time[PLAYER_A] = 10'd999;
-    react_time[PLAYER_B] = 10'd999;
+    react_time[PLAYER_B] = 10'd499;
     {signal_action, signal_react, signal_average, signal_compare, signal_start,  signal_overflow, signal_cleared} = 7'b0;
 
     #100 rstn = 1;
@@ -78,7 +79,6 @@ always @(posedge clk ) begin
         signal_overflow <= 0;
         if (test_turn[cur_player] == 3'd7) begin
             signal_average <= 1;
-            // cur_player <= ~cur_player;
         end
         else signal_action <= 1;
     end
@@ -93,7 +93,6 @@ always @(posedge clk ) begin
             signal_action <= 1;
             cur_player <= ~cur_player;
         end
-        // else signal_action <= 1;
     end
     COMPARE: begin
         #83 $finish;
@@ -116,5 +115,17 @@ StateMachine u_StateMachine(
     .test_turn_B       (test_turn_B      )
 );
 
+RGB u_RGB(
+    .clk              (clk              ),
+    .rstn             (rstn             ),
+    .cur_player       (cur_player       ),
+    .machine_state    (machine_state    ),
+    .test_turn_A      (test_turn_A      ),
+    .test_turn_B      (test_turn_B      ),
+    .avr_react_time_A (avr_react_time_A ),
+    .avr_react_time_B (avr_react_time_B ),
+    .rgb1             (rgb1             ),
+    .rgb2             (rgb2             )
+);
 
-endmodule //TB_StateMachine
+endmodule //TB_RGB

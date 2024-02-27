@@ -93,4 +93,10 @@ module RGB (
     assign rgb1 = ~(color[PLAYER_A] & {3{pwm1}});
     assign rgb2 = ~(color[PLAYER_B] & {3{pwm2}});
 
+    wire [2:0] color_A, color_B;
+
+    // for simulation
+    assign color_A = color[PLAYER_A];
+    assign color_B = color[PLAYER_B];
+
 endmodule //RGB
