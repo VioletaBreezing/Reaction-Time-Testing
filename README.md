@@ -2,7 +2,7 @@
 
 ## 视频展示
 
-<iframe src="//player.bilibili.com/player.html?aid=1351235897&bvid=BV1Xz421X7GK&cid=1453835809&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+Bilibli: <https://www.bilibili.com/video/BV1Xz421X7GK/>
 
 ## 活动链接
 
