@@ -2,7 +2,7 @@
 
 ## 视频展示
 
-iframe
+<iframe src="//player.bilibili.com/player.html?aid=1351235897&bvid=BV1Xz421X7GK&cid=1453835809&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ## 活动链接
 
@@ -399,12 +399,12 @@ Design Summary:
 Number of registers: 188 out of 4635 (4%)
 PFU registers: 188 out of 4320 (4%)
 PIO registers: 0 out of 315 (0%)
-Number of SLICEs: 249 out of 2160 (12%)
-SLICEs as Logic/ROM: 249 out of 2160 (12%)
+Number of SLICEs: 260 out of 2160 (12%)
+SLICEs as Logic/ROM: 260 out of 2160 (12%)
 SLICEs as RAM: 0 out of 1620 (0%)
 SLICEs as Carry: 84 out of 2160 (4%)
-Number of LUT4s: 495 out of 4320 (11%)
-Number used as logic LUTs: 327
+Number of LUT4s: 515 out of 4320 (12%)
+Number used as logic LUTs: 347
 Number used as distributed RAM: 0
 Number used as ripple logic: 168
 Number used as shift registers: 0
