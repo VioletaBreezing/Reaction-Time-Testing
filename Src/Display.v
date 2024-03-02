@@ -72,11 +72,15 @@ module Display (
         .out_digit_0 (digit0             )
     );
     
+    wire [8:0] seg1_, seg2_;
     SegmentEncoder u_SegmentEncoder(
     	.data_1 (digit1),
         .data_2 (digit0),
-        .seg_1  (seg1  ),
-        .seg_2  (seg2  )
+        .seg_1  (seg1_ ),
+        .seg_2  (seg2_ )
     );
+    
+    assign seg1 = (machine_state == IDLE) ? 9'h100 : seg1_;
+    assign seg2 = (machine_state == IDLE) ? 9'h100 : seg2_;
 
 endmodule //Display

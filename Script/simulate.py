@@ -20,12 +20,15 @@ for source_name in source_list:
                 f"{gtkwave_path} {build_dir}/TB_{source_name}.vcd"
                ]
 
-    if source_name == "RGB_LED":
+    if source_name == "RGB":
         commands[0] += f" {source_dir}/PWM.v"
+        commands[0] += f" {source_dir}/StateMachine.v"
     elif (source_name == "Top"):
         for f in os.listdir(source_dir):
             if (f == "Top.v"): continue
             commands[0] += f" {source_dir}/{f}"
+    elif (source_name == "LED"):
+        commands[0] += f" {source_dir}/StateMachine.v"
 
     print(f"\n============ Simulating {source_name}.v ============\n")
     for cmd in commands:

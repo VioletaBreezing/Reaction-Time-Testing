@@ -19,8 +19,8 @@ module Timer (
     assign react_time  = timer_count[9:0];
     assign delay_count = timer_count;
 
-    assign signal_start    = (delay_count == rand_num);
-    assign signal_overflow = (react_time  == 10'd999);
+    assign signal_start    = (machine_state == WAIT)  && (delay_count == rand_num);
+    assign signal_overflow = (machine_state == START) && (react_time  == 10'd999);
     assign signal_cleared  = (timer_count == 14'd0);
 
     assign enable = ((machine_state == WAIT)  && (!signal_start)) ||
