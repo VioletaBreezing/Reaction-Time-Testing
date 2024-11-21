@@ -11,7 +11,7 @@ Bilibli: <https://www.bilibili.com/video/BV1Xz421X7GK/>
 ## 项目链接
 
 Github:  <https://github.com/kokkoroQwQ/Reaction-Time-Testing/> </br>
-电子森林: 待平台审核
+电子森林: <https://www.eetree.cn/project/detail/2769>
 
 ## 项目需求
 
